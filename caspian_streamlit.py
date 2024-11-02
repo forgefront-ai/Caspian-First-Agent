@@ -28,7 +28,7 @@ def send_message():
     st.session_state.user_input = ""  # Restablece el cuadro de texto
 
 # Título de la aplicación
-st.title("Conversación con el Agent")
+st.title("CASPIAN AI Agent")
 
 # Mostrar el historial de la conversación
 for message in st.session_state.chat_history:
@@ -36,9 +36,9 @@ for message in st.session_state.chat_history:
 
 # Caja de texto para el input del usuario
 st.text_input(
-    "Escribe tu mensaje aquí",
+    "Type your message here",
     key="user_input",  # Clave única en session_state
-    placeholder="Escribe aquí y presiona Enter para enviar",
+    placeholder="Type here and press Enter to send",
     label_visibility="hidden",
     on_change=send_message  # Ejecuta send_message al cambiar el texto
 )
