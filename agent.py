@@ -4,7 +4,8 @@ from config import API_KEY, MODEL, Assist_ID
 from openai import OpenAI
 import time
 
-
+ if API_KEY is None:
+         raise ValueError("API_KEY no está configurada correctamente.")
 
 class CaspianAgent:
     def __init__(self):
