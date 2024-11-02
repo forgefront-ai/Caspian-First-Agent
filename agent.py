@@ -3,6 +3,9 @@ import openai
 from config import API_KEY, MODEL, Assist_ID
 from openai import OpenAI
 import time
+import streamlit as st
+
+API_KEY = st.secrets['API_KEY']
 
 if API_KEY is None:
     raise ValueError("API_KEY no está configurada correctamente.")
