@@ -4,36 +4,6 @@ from config import API_KEY, MODEL, Assist_ID
 from openai import OpenAI
 import time
 
-# Configurar la API Key de OpenAI
-def Agent_prueba():
-    openai.api_key = API_KEY
-
-    client = OpenAI(api_key=API_KEY)
-
-    chat = client.beta.threads.create(
-        messages=[
-            {
-                'role':'user',
-                'content': 'What services do you provide',
-            }
-
-        ]
-    )
-    run = client.beta.threads.runs.create(thread_id=chat.id, assistant_id=Assist_ID)
-    print(f'Run Created: {run.id}')
-
-    while run.status != 'completed':
-        run = client.beta.threads.runs.retrieve(thread_id=chat.id, run_id=run.id)
-        print(f'Run Status: {run.status}')
-        time.sleep(0.5)
-    else:
-        print(f'Run Completed!')
-
-    message_response = client.beta.threads.messages.list(thread_id=chat.id)
-    messages = message_response.data
-
-    latest_message = messages[0]
-    print(f'Response: {latest_message.content[0].text.value}')
 
 
 class CaspianAgent:
